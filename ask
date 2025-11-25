@@ -1,13 +1,9 @@
 #!/usr/bin/env python3
-"""
-Standard inputから1行読み込み、
-アスキーアートのバナーとしてStandard outputに出力する。
-"""
+# SPDX-FileCopyrightText: 2025 Kazuki Nakagawa
+# SPDX-License-Identifier: BSD-3-Clause
 
 import sys
 
-# 各文字の5行分のデザインを定義する
-# NOTE: 独自のフォントを追加・変更することでオリジナリティが出ます
 FONT = {
     ' ': ["     ", "     ", "     ", "     ", "     "],
     'a': [" aaa ", "a   a", "aaaaa", "a   a", "a   a"],
@@ -48,50 +44,39 @@ FONT = {
     '0': [" 000 ", "0   0", "0 0 0", "0   0", " 000 "],
 }
 
-# すべてのフォントの高さ (ここでは5で固定)
 FONT_HEIGHT = 5
 
 def main():
     try:
-        # 1. 標準入力から1行読み込む
         input_text = sys.stdin.readline()
         if not input_text:
-            # 入力が空の場合 (Ctrl+Dなど)
             sys.stderr.write("Error: No input provided.\n")
-            sys.exit(1) # エラー終了
+            sys.exit(1)
 
-        # 改行文字を取り除き、小文字に変換
         input_text = input_text.strip().lower()
-
-        # 出力用の各行を準備 (高さ5行分の空文字列リスト)
         output_lines = [""] * FONT_HEIGHT
 
-        # 2. 入力文字を1文字ずつ処理
         for char in input_text:
             if char not in FONT:
-                # FONT辞書にない文字が入力された
                 sys.stderr.write(f"Error: Unsupported character: '{char}'\n")
-                sys.exit(1) # エラー終了
+                sys.exit(1)
 
-            # FONTから該当文字のアスキーアート (5行のリスト) を取得
             char_art = FONT[char]
 
-            # 出力用の各行に、該当文字の各行を連結する
             for i in range(FONT_HEIGHT):
-                output_lines[i] += char_art[i] + " " # 文字間にスペースを1つ入れる
+                output_lines[i] += char_art[i] + " "
 
-        # 3. 標準出力に結果のみを出力
         for line in output_lines:
-            print(line) # print() はデフォルトで sys.stdout に出力される
+            print(line)
 
-        # 4. 正常終了
         sys.exit(0)
 
     except Exception as e:
-        # 予期せぬエラー
         sys.stderr.write(f"An unexpected error occurred: {e}\n")
         sys.exit(1)
 
 
 if __name__ == "__main__":
     main()
+#-このソフトウェアパッケージは，3条項BSDライセンスの下，再頒布および使用が許可されます．
+#-© 2025 Kazuki Nakagawa
