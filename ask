@@ -59,8 +59,14 @@ def main():
         for char in input_text:
             if char not in FONT:
                 sys.stderr.write(f"Error: Unsupported character: '{char}'\n")
+<<<<<<< HEAD
                 sys.exit(1)
 
+=======
+
+                sys.exit(1)
+
+>>>>>>> 3ce53b08d48027730df6c867a46da3bee7e10795
             char_art = FONT[char]
 
             for i in range(FONT_HEIGHT):
@@ -72,11 +78,20 @@ def main():
         sys.exit(0)
 
     except Exception as e:
+<<<<<<< HEAD
+=======
+
+>>>>>>> 3ce53b08d48027730df6c867a46da3bee7e10795
         sys.stderr.write(f"An unexpected error occurred: {e}\n")
+
         sys.exit(1)
 
-
 if __name__ == "__main__":
+
     main()
+<<<<<<< HEAD
+=======
+
+>>>>>>> 3ce53b08d48027730df6c867a46da3bee7e10795
 #-このソフトウェアパッケージは，3条項BSDライセンスの下，再頒布および使用が許可されます．
 #-© 2025 Kazuki Nakagawa
