@@ -1,0 +1,97 @@
+#!/usr/bin/env python3
+"""
+Standard inputから1行読み込み、
+アスキーアートのバナーとしてStandard outputに出力する。
+"""
+
+import sys
+
+# 各文字の5行分のデザインを定義する
+# NOTE: 独自のフォントを追加・変更することでオリジナリティが出ます
+FONT = {
+    ' ': ["     ", "     ", "     ", "     ", "     "],
+    'a': [" aaa ", "a   a", "aaaaa", "a   a", "a   a"],
+    'b': ["bbbb ", "b   b", "bbbb ", "b   b", "bbbb "],
+    'c': [" cccc", "c    ", "c    ", "c    ", " cccc"],
+    'd': ["dddd ", "d   d", "d   d", "d   d", "dddd "],
+    'e': ["eeeee", "e    ", "eeeee", "e    ", "eeeee"],
+    'f': ["fffff", "f    ", "ffff ", "f    ", "f    "],
+    'g': [" gggg", "g    ", "g ggg", "g   g", " ggg "],
+    'h': ["h   h", "h   h", "hhhhh", "h   h", "h   h"],
+    'i': [" iii ", "  i  ", "  i  ", "  i  ", " iii "],
+    'j': ["  jjj", "   j ", "   j ", "j  j ", " jj  "],
+    'k': ["k   k", "k  k ", "kkk  ", "k  k ", "k   k"],
+    'l': ["l    ", "l    ", "l    ", "l    ", "lllll"],
+    'm': ["m   m", "mm mm", "m m m", "m   m", "m   m"],
+    'n': ["n   n", "nn  n", "n n n", "n  nn", "n   n"],
+    'o': [" ooo ", "o   o", "o   o", "o   o", " ooo "],
+    'p': ["pppp ", "p   p", "pppp ", "p    ", "p    "],
+    'q': [" qqq ", "q   q", "q q q", "q  q ", " qqq "],
+    'r': ["rrrr ", "r   r", "rrrr ", "r  r ", "r   r"],
+    's': [" ssss", "s    ", " sss ", "    s", "ssss "],
+    't': ["ttttt", "  t  ", "  t  ", "  t  ", "  t  "],
+    'u': ["u   u", "u   u", "u   u", "u   u", " uuu "],
+    'v': ["v   v", "v   v", "v   v", " v v ", "  v  "],
+    'w': ["w   w", "w   w", "w w w", "w w w", " w w "],
+    'x': ["x   x", " x x ", "  x  ", " x x ", "x   x"],
+    'y': ["y   y", " y y ", "  y  ", "  y  ", "  y  "],
+    'z': ["zzzzz", "   z ", "  z  ", " z   ", "zzzzz"],
+    '1': ["  1  ", " 11  ", "  1  ", "  1  ", " 111 "],
+    '2': [" 222 ", "2   2", "   2 ", "  2  ", " 2222"],
+    '3': [" 333 ", "3   3", "  33 ", "3   3", " 333 "],
+    '4T': ["4  4 ", "4  4 ", " 4444", "   4 ", "   4 "],
+    '5': [" 5555", "5    ", " 555 ", "    5", " 555 "],
+    '6': [" 666 ", "6    ", " 666 ", "6   6", " 666 "],
+    '7': [" 7777", "    7", "   7 ", "  7  ", " 7   "],
+    '8': [" 888 ", "8   8", " 888 ", "8   8", " 888 "],
+    '9': [" 999 ", "9   9", " 9999", "    9", " 999 "],
+    '0': [" 000 ", "0   0", "0 0 0", "0   0", " 000 "],
+}
+
+# すべてのフォントの高さ (ここでは5で固定)
+FONT_HEIGHT = 5
+
+def main():
+    try:
+        # 1. 標準入力から1行読み込む
+        input_text = sys.stdin.readline()
+        if not input_text:
+            # 入力が空の場合 (Ctrl+Dなど)
+            sys.stderr.write("Error: No input provided.\n")
+            sys.exit(1) # エラー終了
+
+        # 改行文字を取り除き、小文字に変換
+        input_text = input_text.strip().lower()
+
+        # 出力用の各行を準備 (高さ5行分の空文字列リスト)
+        output_lines = [""] * FONT_HEIGHT
+
+        # 2. 入力文字を1文字ずつ処理
+        for char in input_text:
+            if char not in FONT:
+                # FONT辞書にない文字が入力された
+                sys.stderr.write(f"Error: Unsupported character: '{char}'\n")
+                sys.exit(1) # エラー終了
+
+            # FONTから該当文字のアスキーアート (5行のリスト) を取得
+            char_art = FONT[char]
+
+            # 出力用の各行に、該当文字の各行を連結する
+            for i in range(FONT_HEIGHT):
+                output_lines[i] += char_art[i] + " " # 文字間にスペースを1つ入れる
+
+        # 3. 標準出力に結果のみを出力
+        for line in output_lines:
+            print(line) # print() はデフォルトで sys.stdout に出力される
+
+        # 4. 正常終了
+        sys.exit(0)
+
+    except Exception as e:
+        # 予期せぬエラー
+        sys.stderr.write(f"An unexpected error occurred: {e}\n")
+        sys.exit(1)
+
+
+if __name__ == "__main__":
+    main()
