@@ -1,5 +1,4 @@
 #!/bin/bash
 
-echo "テスト実行中..."
-
-exit 0
+ACTUAL_OUTPUT=$(echo "TEST" | ./ascii)
+if echo "!" | ./ascii 2> /dev/null; then
