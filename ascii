@@ -51,6 +51,7 @@ def main():
     try:
         input_text = sys.stdin.readline()
         if not input_text:
+
 #入力がない場合のエラー
             sys.stderr.write("Error: No input provided.\n")
             sys.exit(1)
@@ -61,6 +62,7 @@ def main():
 
         for char in input_text:
             if char not in FONT:
+
 #定義にない文字が入力された場合のエラー
                 sys.stderr.write(f"Error: Unsupported character: '{char}'\n")
                 sys.exit(1)
