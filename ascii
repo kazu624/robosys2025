@@ -1,0 +1,89 @@
+#!/usr/bin/env python3
+# SPDX-FileCopyrightText: 2025 Kazuki Nakagawa
+# SPDX-License-Identifier: BSD-3-Clause
+
+import sys
+
+#バナーの定義
+FONT = {
+    ' ': ["     ", "     ", "     ", "     ", "     "],
+    'a': [" aaa ", "a   a", "aaaaa", "a   a", "a   a"],
+    'b': ["bbbb ", "b   b", "bbbb ", "b   b", "bbbb "],
+    'c': [" cccc", "c    ", "c    ", "c    ", " cccc"],
+    'd': ["dddd ", "d   d", "d   d", "d   d", "dddd "],
+    'e': ["eeeee", "e    ", "eeeee", "e    ", "eeeee"],
+    'f': ["fffff", "f    ", "ffff ", "f    ", "f    "],
+    'g': [" gggg", "g    ", "g ggg", "g   g", " ggg "],
+    'h': ["h   h", "h   h", "hhhhh", "h   h", "h   h"],
+    'i': [" iii ", "  i  ", "  i  ", "  i  ", " iii "],
+    'j': ["  jjj", "   j ", "   j ", "j  j ", " jj  "],
+    'k': ["k   k", "k  k ", "kkk  ", "k  k ", "k   k"],
+    'l': ["l    ", "l    ", "l    ", "l    ", "lllll"],
+    'm': ["m   m", "mm mm", "m m m", "m   m", "m   m"],
+    'n': ["n   n", "nn  n", "n n n", "n  nn", "n   n"],
+    'o': [" ooo ", "o   o", "o   o", "o   o", " ooo "],
+    'p': ["pppp ", "p   p", "pppp ", "p    ", "p    "],
+    'q': [" qqq ", "q   q", "q q q", "q  q ", " qqq "],
+    'r': ["rrrr ", "r   r", "rrrr ", "r  r ", "r   r"],
+    's': [" ssss", "s    ", " sss ", "    s", "ssss "],
+    't': ["ttttt", "  t  ", "  t  ", "  t  ", "  t  "],
+    'u': ["u   u", "u   u", "u   u", "u   u", " uuu "],
+    'v': ["v   v", "v   v", "v   v", " v v ", "  v  "],
+    'w': ["w   w", "w   w", "w w w", "w w w", " w w "],
+    'x': ["x   x", " x x ", "  x  ", " x x ", "x   x"],
+    'y': ["y   y", " y y ", "  y  ", "  y  ", "  y  "],
+    'z': ["zzzzz", "   z ", "  z  ", " z   ", "zzzzz"],
+    '1': ["  1  ", " 11  ", "  1  ", "  1  ", " 111 "],
+    '2': [" 222 ", "2   2", "   2 ", "  2  ", " 2222"],
+    '3': [" 333 ", "3   3", "  33 ", "3   3", " 333 "],
+    '4T': ["4  4 ", "4  4 ", " 4444", "   4 ", "   4 "],
+    '5': [" 5555", "5    ", " 555 ", "    5", " 555 "],
+    '6': [" 666 ", "6    ", " 666 ", "6   6", " 666 "],
+    '7': [" 7777", "    7", "   7 ", "  7  ", " 7   "],
+    '8': [" 888 ", "8   8", " 888 ", "8   8", " 888 "],
+    '9': [" 999 ", "9   9", " 9999", "    9", " 999 "],
+    '0': [" 000 ", "0   0", "0 0 0", "0   0", " 000 "],
+}
+
+FONT_HEIGHT = 5
+
+def main():
+    try:
+        input_text = sys.stdin.readline()
+        if not input_text:
+#入力がない場合のエラー
+            sys.stderr.write("Error: No input provided.\n")
+            sys.exit(1)
+
+#改行文字を取り除き小文字に変換
+        input_text = input_text.strip().lower()
+        output_lines = [""] * FONT_HEIGHT
+
+        for char in input_text:
+            if char not in FONT:
+#定義にない文字が入力された場合のエラー
+                sys.stderr.write(f"Error: Unsupported character: '{char}'\n")
+                sys.exit(1)
+
+            char_art = FONT[char]
+
+#文字間にスペースを一つ入れる
+            for i in range(FONT_HEIGHT):
+                output_lines[i] += char_art[i] + " "
+
+        for line in output_lines:
+            print(line)
+
+        sys.exit(0)
+
+#予測できないエラー
+    except Exception as e:
+        sys.stderr.write(f"An unexpected error occurred: {e}\n")
+        sys.exit(1)
+
+if __name__ == "__main__":
+
+    main()
+
+#-このソフトウェアパッケージは，3条項BSDライセンスの下，再頒布および使用が許可されます．
+#-© 2025 Kazuki Nakagawa
