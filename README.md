@@ -4,6 +4,7 @@
 標準入力から受け取った文字列を、「アスキーアートバナー」として出力する。
 
 ## テスト環境
+- Python 3.13.5
 - Ubuntu 22.05 LTS
 
 ## 使用準備
@@ -22,9 +23,10 @@ cd robosys2025
 ```
 ls
 ```
-```
-LICENSE  README.md  ascii   test.bash  
-```
+	- 実行結果
+	```
+	LICENSE  README.md  ascii   test.bash  
+	```
 上の内容が表示されていればできている。
 
 #### 実行権限を付与
@@ -38,23 +40,24 @@ chmod +x ascii
 ```
 echo "abc 123" | ./ascii
 ```
-```
- aaa  bbbb   cccc         1    222   333
-a   a b   b c            11   2   2 3   3
-aaaaa bbbb  c             1      2    33
-a   a b   b c             1     2   3   3
-a   a bbbb   cccc        111   2222  333
-```
+	- 実行結果
+　　　　```
+	 aaa  bbbb   cccc         1    222   333
+	a   a b   b c            11   2   2 3   3
+	aaaaa bbbb  c             1      2    33
+	a   a b   b c             1     2   3   3
+	a   a bbbb   cccc        111   2222  333
+	```
 - アルファベット、数字以外が入力された場合
 ```
 echo "+" | ./ascii
 ```
-```
-Error: Unsupported character: '+'
-```
+	- 実行結果
+	```
+	Error: Unsupported character: '+'
+	```
 errorの原因となった文字が指摘される
 
 ## ライセンス
 - このソフトウェアパッケージは，3条項BSDライセンスの下，再頒布および使用が許可されます．
 - © 2025 Kazuki Nakagawa
-
