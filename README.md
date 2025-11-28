@@ -1,6 +1,6 @@
 # アスキー文字コマンド
 
-![Test Passing](https://img.shields.io/badge/test-passing-green?logo=github)
+[![test](https://github.com/kazu624/robosys2025/actions/workflows/test.yml/badge.svg)](https://github.com/kazu624/robosys2025/actions)
 ## 概要
 標準入力から受け取った文字列を、「アスキーアートバナー」として出力する。
 
