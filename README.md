@@ -62,3 +62,6 @@ Error: Unsupported character: '+'
 ## ライセンス
 - このソフトウェアパッケージは，3条項BSDライセンスの下，再頒布および使用が許可されます．
 - © 2025 Kazuki Nakagawa
+
+## 参考資料
+本READMEの構成や形式は、mooto2525氏の [robosys2024/README.md](https://github.com/mooto2525/robosys2024/blob/main/README.md) を参考にさせていただきました。
