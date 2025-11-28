@@ -23,10 +23,10 @@ cd robosys2025
 ```
 ls
 ```
-	- 実行結果
-	```
-	LICENSE  README.md  ascii   test.bash  
-	```
+実行結果
+```
+RICENSE  README.md  ascii   test.bash  
+```
 上の内容が表示されていればできている。
 
 #### 実行権限を付与
@@ -40,22 +40,22 @@ chmod +x ascii
 ```
 echo "abc 123" | ./ascii
 ```
-	- 実行結果
-　　　　```
-	 aaa  bbbb   cccc         1    222   333
-	a   a b   b c            11   2   2 3   3
-	aaaaa bbbb  c             1      2    33
-	a   a b   b c             1     2   3   3
-	a   a bbbb   cccc        111   2222  333
-	```
+実行結果
+```
+ aaa  bbbb   cccc         1    222   333
+a   a b   b c            11   2   2 3   3
+aaaaa bbbb  c             1      2    33
+a   a b   b c             1     2   3   3
+a   a bbbb   cccc        111   2222  333
+```
 - アルファベット、数字以外が入力された場合
 ```
 echo "+" | ./ascii
 ```
-	- 実行結果
-	```
-	Error: Unsupported character: '+'
-	```
+実行結果
+```
+Error: Unsupported character: '+'
+```
 errorの原因となった文字が指摘される
 
 ## ライセンス
