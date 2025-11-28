@@ -1,8 +1,8 @@
-# アスキー文字コマンド
+# アスキーアートコマンド
 
 [![test](https://github.com/kazu624/robosys2025/actions/workflows/test.yml/badge.svg)](https://github.com/kazu624/robosys2025/actions)
 ## 概要
-標準入力から受け取った文字列を、「アスキーアートバナー」として出力する。
+標準入力から受け取った文字列を、「アスキーアート」として出力する。
 
 ## テスト環境
 - Python 3.13.5
