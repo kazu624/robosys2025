@@ -1,6 +1,5 @@
 #!/bin/bash
 
-
 EXPECTED_OUTPUT_SNIPPET="ttttt eeeee  ssss"
 
 ACTUAL_OUTPUT=$(echo "TEST" | ./ascii)
