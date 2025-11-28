@@ -1,5 +1,6 @@
 # アスキー文字コマンド
 
+![Test Passing](https://img.shields.io/badge/test-passing-green?logo=github)
 ## 概要
 標準入力から受け取った文字列を、「アスキーアートバナー」として出力する。
 
