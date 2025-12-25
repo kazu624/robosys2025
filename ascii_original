@@ -73,6 +73,7 @@ def main():
 
         for line in output_lines:
             print(line)
+        
         sys.exit(0)
 
     #予測できないエラー
