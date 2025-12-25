@@ -1,13 +1,22 @@
 name: test
+
 on: push
+
 jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
 
       - name: Set permission
-        run: chmod +x ascii
+        run: |
+          chmod +x ascii_original
+          chmod +x test.bash
 
       - name: All test
         run: bash -xv ./test.bash
