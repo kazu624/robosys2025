@@ -10,7 +10,7 @@ errors=0
 
 echo "--- Starting Enhanced Tests ---"
 
-# テスト1: 基本的な文字列
+# テスト1: 基本的な文字列の入力確認
 ACTUAL=$(echo "TEST" | $TARGET)
 EXPECTED_SNIPPET="ttttt eeeee  ssss"
 if [[ "$ACTUAL" == *"$EXPECTED_SNIPPET"* ]];
