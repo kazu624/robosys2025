@@ -1,12 +1,11 @@
 #!/usr/bin/env python3
 # SPDX-FileCopyrightText: 2025 Kazuki Nakagawa
 # SPDX-License-Identifier: BSD-3-Clause
-
 import sys
 
-#バナーの定義
+# バナーの定義
 FONT = {
-    ' ': ["     ", "     ", "     ", "     ", "     "],
+    ' ': ["     "]*5,
     'a': [" aaa ", "a   a", "aaaaa", "a   a", "a   a"],
     'b': ["bbbb ", "b   b", "bbbb ", "b   b", "bbbb "],
     'c': [" cccc", "c    ", "c    ", "c    ", " cccc"],
@@ -44,39 +43,29 @@ FONT = {
     '9': [" 999 ", "9   9", " 9999", "    9", " 999 "],
     '0': [" 000 ", "0   0", "0 0 0", "0   0", " 000 "],
 }
-
 FONT_HEIGHT = 5
 
 def main():
     try:
         input_text = sys.stdin.readline()
         if not input_text:
-            #入力がない場合のエラー
             sys.stderr.write("Error: No input provided.\n")
             sys.exit(1)
-
-        #改行文字を取り除き小文字に変換
         input_text = input_text.strip().lower()
         output_lines = [""] * FONT_HEIGHT
 
         for char in input_text:
             if char not in FONT:
-                #定義にない文字が入力された場合のエラー
                 sys.stderr.write(f"Error: Unsupported character: '{char}'\n")
                 sys.exit(1)
-
             char_art = FONT[char]
-
-            #文字間にスペースを一つ入れる
             for i in range(FONT_HEIGHT):
                 output_lines[i] += char_art[i] + " "
 
         for line in output_lines:
             print(line)
-        
         sys.exit(0)
 
-    #予測できないエラー
     except Exception as e:
         sys.stderr.write(f"An unexpected error occurred: {e}\n")
         sys.exit(1)
