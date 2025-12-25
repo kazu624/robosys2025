@@ -59,6 +59,3 @@ fi
 
 echo "All tests passed successfully."
 exit 0
-
-#-このソフトウェアパッケージは，3条項BSDライセンスの下，再頒布および使用が許可されます．
-#-© 2025 Kazuki Nakagawa
