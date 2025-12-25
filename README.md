@@ -5,33 +5,23 @@
 標準入力から受け取った文字列を、「アスキーアート」として出力する。
 
 ## テスト環境
-- Python 3.13.5
-- Ubuntu 22.05 LTS
+- Python 3.10
+- Ubuntu 22.04.5 LTS
 
 ## 使用準備
-### 以下のコマンドをターミナル上で実行する。
-#### リポジトリをクローン
-```
-git clone https://github.com/kazu624/robosys2025
-```
+以下のコマンドをターミナル上で実行してください。
 
-#### ディレクトリに移動
-```
+```bash
+# リポジトリをクローン
+git clone [https://github.com/kazu624/robosys2025](https://github.com/kazu624/robosys2025)
+
+# ディレクトリに移動
 cd robosys2025
-```
 
-#### 移動できたかを確認
-```
+# ファイルがあるか確認
 ls
-```
-実行結果
-```
-RICENSE  README.md  ascii   test.bash  
-```
-上の内容が表示されていればできている。
 
-#### 実行権限を付与
-```
+# 実行権限を付与
 chmod +x ascii
 ```
 
