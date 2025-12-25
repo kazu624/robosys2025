@@ -51,7 +51,7 @@ def main():
         if not input_text:
             sys.stderr.write("Error: No input provided.\n")
             sys.exit(1)
-            
+
         input_text = input_text.strip().lower()
         output_lines = [""] * FONT_HEIGHT
 
@@ -59,7 +59,7 @@ def main():
             if char not in FONT:
                 sys.stderr.write(f"Error: Unsupported character: '{char}'\n")
                 sys.exit(1)
-            
+
             char_art = FONT[char]
             for i in range(FONT_HEIGHT):
                 output_lines[i] += char_art[i] + " "
