@@ -3,7 +3,7 @@
 # SPDX-License-Identifier: BSD-3-Clause
 
 # テスト対象の設定
-TARGET="./ascii"
+TARGET="./ascii_original"
 chmod +x $TARGET
 
 errors=0
