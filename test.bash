@@ -1,23 +1,59 @@
 #!/bin/bash
+# SPDX-FileCopyrightText: 2025 Kazuki Nakagawa
+# SPDX-License-Identifier: BSD-3-Clause
 
-EXPECTED_OUTPUT_SNIPPET="ttttt eeeee  ssss"
+# テスト対象の設定
+TARGET="./ascii"
+chmod +x $TARGET
 
-ACTUAL_OUTPUT=$(echo "TEST" | ./ascii)
+errors=0
 
-if [[ "$ACTUAL_OUTPUT" == *"$EXPECTED_OUTPUT_SNIPPET"* ]]; then
-    echo "OK: ascii command passed."
+echo "--- Starting Enhanced Tests ---"
+
+# テスト1: 基本的な文字列
+ACTUAL=$(echo "TEST" | $TARGET)
+EXPECTED_SNIPPET="ttttt eeeee  ssss" [cite: 1]
+if [[ "$ACTUAL" == *"$EXPECTED_SNIPPET"* ]]; then
+    echo "OK: Word 'TEST' passed."
 else
-    echo "NG: ascii command failed."
-    exit 1
+    echo "NG: Word 'TEST' failed."
+    errors=$((errors + 1))
 fi
 
-if echo "!" | ./ascii 2> /dev/null; then
-
-    echo "NG: failed to exit with error."
-    exit 1
+# テスト2: 数字の入力確認
+ACTUAL_NUM=$(echo "123" | $TARGET)
+if [[ "$ACTUAL_NUM" == *"  1    222   333 "* ]]; then
+    echo "OK: Numbers '123' passed."
 else
-    echo "OK: failed as expected."
+    echo "NG: Numbers '123' failed."
+    errors=$((errors + 1))
 fi
 
-echo "All tests passed."
-exit 0
+# テスト3: 未定義文字によるエラー終了
+if echo "!" | $TARGET 2> /dev/null; then
+    echo "NG: Failed to exit with error for unsupported char '!'."
+    errors=$((errors + 1))
+else
+    echo "OK: Failed as expected for unsupported char '!'."
+fi
+
+# テスト4: 入力なしによるエラー終了
+if echo -n "" | $TARGET 2> /dev/null; then
+    echo "NG: Failed to exit with error for empty input."
+    errors=$((errors + 1))
+else
+    echo "OK: Failed as expected for empty input."
+fi
+
+echo "--- Tests Completed ---"
+
+if [ $errors -ne 0 ]; then
+    echo "Total failures: $errors"
+    exit 1 [cite: 3, 4]
+fi
+
+echo "All tests passed successfully."
+exit 0 [cite: 4]
+
+#-このソフトウェアパッケージは，3条項BSDライセンスの下，再頒布および使用が許可されます．
+#-© 2025 Kazuki Nakagawa
